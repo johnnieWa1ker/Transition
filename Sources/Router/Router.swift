@@ -10,6 +10,6 @@ import UIKit
 public class Router<VC: UIViewController>: RouterProtocol {
     typealias Controller = VC
 
-    var transition: Transition?
-    weak var viewController: Controller?
+    public var transition: Transition?
+    public weak var viewController: Controller?
 }

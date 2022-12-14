@@ -7,14 +7,14 @@
 
 import UIKit
 
-typealias EmbedTransitionContainer = UIView
+public typealias EmbedTransitionContainer = UIView
 
 public class EmbedTransition {
-    private weak var containerView: EmbedTransitionContainer?
+    public weak var containerView: EmbedTransitionContainer?
 
-    weak public var viewController: UIViewController?
+    public weak var viewController: UIViewController?
 
-    init(container: EmbedTransitionContainer? = nil) {
+    public init(container: EmbedTransitionContainer? = nil) {
         self.containerView = container
     }
 }

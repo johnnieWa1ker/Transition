@@ -11,29 +11,29 @@ public protocol RouterProtocol: AnyObject {
     
     associatedtype Controller: UIViewController
     
-    var viewController: Controller? { get }
-    var transition: Transition? { get set }
+    public var viewController: Controller? { get }
+    public var transition: Transition? { get set }
 
     /// Open new controller
-    func open(_ viewController: UIViewController, transition: Transition)
+    public func open(_ viewController: UIViewController, transition: Transition)
 
     /// Close current controller
-    func close()
-    func close(completion: @escaping () -> Void)
+    public func close()
+    public func close(completion: @escaping () -> Void)
 }
 
-public extension RouterProtocol {
-    func open(_ viewController: UIViewController, transition: Transition) {
+extension RouterProtocol {
+    public func open(_ viewController: UIViewController, transition: Transition) {
         transition.viewController = self.viewController
         transition.open(viewController)
     }
 
-    func close() {
+    public func close() {
         guard let currentController = viewController else { return }
         transition?.close(currentController)
     }
 
-    func close(completion: @escaping () -> Void) {
+    public func close(completion: @escaping () -> Void) {
         guard let currentController = viewController else { return }
         transition?.close(currentController, completion: completion)
     }

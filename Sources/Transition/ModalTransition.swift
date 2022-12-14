@@ -12,7 +12,7 @@ public class ModalTransition {
     var modalPresentationStyle: UIModalPresentationStyle?
     public weak var viewController: UIViewController?
 
-    init(
+    public init(
         isAnimated: Bool = true,
         modalPresentationStyle: UIModalPresentationStyle? = nil
     ) {

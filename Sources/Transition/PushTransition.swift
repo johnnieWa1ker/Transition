@@ -12,7 +12,7 @@ public class PushTransition {
 
     public weak var viewController: UIViewController?
 
-    init(animated: Bool = true) {
+    public init(animated: Bool = true) {
         self.isAnimated = animated
     }
 }
