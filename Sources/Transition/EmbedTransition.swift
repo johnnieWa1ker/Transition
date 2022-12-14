@@ -9,10 +9,10 @@ import UIKit
 
 typealias EmbedTransitionContainer = UIView
 
-class EmbedTransition {
+public class EmbedTransition {
     private weak var containerView: EmbedTransitionContainer?
 
-    weak var viewController: UIViewController?
+    weak public var viewController: UIViewController?
 
     init(container: EmbedTransitionContainer? = nil) {
         self.containerView = container
@@ -22,7 +22,7 @@ class EmbedTransition {
 // MARK: - Transition
 
 extension EmbedTransition: Transition {
-    func open(_ viewController: UIViewController) {
+    public func open(_ viewController: UIViewController) {
         guard
             let view = viewController.view,
             let parentController = self.viewController,
@@ -48,7 +48,7 @@ extension EmbedTransition: Transition {
         ])
     }
 
-    func close(_ viewController: UIViewController, completion: @escaping () -> Void) {
+    public func close(_ viewController: UIViewController, completion: @escaping () -> Void) {
         viewController.view.removeFromSuperview()
         viewController.removeFromParent()
         completion()

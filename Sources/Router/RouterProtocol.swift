@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol RouterProtocol: AnyObject {
+public protocol RouterProtocol: AnyObject {
     
     associatedtype Controller: UIViewController
     
@@ -22,7 +22,7 @@ protocol RouterProtocol: AnyObject {
     func close(completion: @escaping () -> Void)
 }
 
-extension RouterProtocol {
+public extension RouterProtocol {
     func open(_ viewController: UIViewController, transition: Transition) {
         transition.viewController = self.viewController
         transition.open(viewController)

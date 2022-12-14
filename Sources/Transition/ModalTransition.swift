@@ -7,10 +7,10 @@
 
 import UIKit
 
-class ModalTransition {
+public class ModalTransition {
     var isAnimated: Bool = true
     var modalPresentationStyle: UIModalPresentationStyle?
-    weak var viewController: UIViewController?
+    public weak var viewController: UIViewController?
 
     init(
         isAnimated: Bool = true,
@@ -24,7 +24,7 @@ class ModalTransition {
 // MARK: - Transition
 
 extension ModalTransition: Transition {
-    func open(_ viewController: UIViewController) {
+    public func open(_ viewController: UIViewController) {
         if let presentationStyle = modalPresentationStyle {
             viewController.modalPresentationStyle = presentationStyle
         }
@@ -40,11 +40,11 @@ extension ModalTransition: Transition {
         self.viewController?.present(viewController, animated: isAnimated, completion: nil)
     }
 
-    func close(_ viewController: UIViewController) {
+    public func close(_ viewController: UIViewController) {
         viewController.dismiss(animated: isAnimated, completion: nil)
     }
 
-    func close(_ viewController: UIViewController, completion: @escaping () -> Void) {
+    public func close(_ viewController: UIViewController, completion: @escaping () -> Void) {
         viewController.dismiss(animated: isAnimated, completion: completion)
     }
 }

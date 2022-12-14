@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Router<VC: UIViewController>: RouterProtocol {
+public class Router<VC: UIViewController>: RouterProtocol {
     typealias Controller = VC
 
     var transition: Transition?
