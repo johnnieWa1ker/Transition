@@ -12,4 +12,12 @@ open class Router<VC: UIViewController>: RouterProtocol {
 
     public var transition: Transition?
     public weak var viewController: Controller?
+    
+    public init(
+        transition: Transition? = nil,
+        viewController: Controller? = nil
+    ) {
+        self.transition = transition
+        self.viewController = viewController
+    }
 }
