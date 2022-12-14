@@ -9,17 +9,17 @@ import UIKit
 
 public protocol RouterProtocol: AnyObject {
     
-    public associatedtype Controller: UIViewController
+    associatedtype Controller: UIViewController
     
-    public var viewController: Controller? { get }
-    public var transition: Transition? { get set }
+    var viewController: Controller? { get }
+    var transition: Transition? { get set }
 
     /// Open new controller
-    public func open(_ viewController: UIViewController, transition: Transition)
+    func open(_ viewController: UIViewController, transition: Transition)
 
     /// Close current controller
-    public func close()
-    public func close(completion: @escaping () -> Void)
+    func close()
+    func close(completion: @escaping () -> Void)
 }
 
 extension RouterProtocol {
