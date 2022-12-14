@@ -9,7 +9,7 @@ import UIKit
 
 public protocol RouterProtocol: AnyObject {
     
-    associatedtype Controller: UIViewController
+    public associatedtype Controller: UIViewController
     
     public var viewController: Controller? { get }
     public var transition: Transition? { get set }
