@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Allows you to open a new ViewController as a modal window.
 public class ModalTransition {
     /// Pass `true` to animate the transition.
     var isAnimated: Bool = true
@@ -14,7 +15,7 @@ public class ModalTransition {
     /// The presentation style for modal view controllers.
     var modalPresentationStyle: UIModalPresentationStyle?
 
-    /// If `modalPresentationStyle` is `UIModalPresentationStyle.pageSheet` or `UIModalPresentationStyle.formSheet`, these properties will be applied to the rendered controller.
+    /// If `modalPresentationStyle` is `UIModalPresentationStyle.pageSheet` or `UIModalPresentationStyle.formSheet`, these properties will be applied to the opened controller.
     var bottomSheetProps: BottomSheetProps?
 
     public weak var viewController: UIViewController?

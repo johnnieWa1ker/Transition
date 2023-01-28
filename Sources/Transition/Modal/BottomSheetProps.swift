@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+/// If `modalPresentationStyle` is `UIModalPresentationStyle.pageSheet` or `UIModalPresentationStyle.formSheet`, these properties will be applied to the opened controller.
 public struct BottomSheetProps {
     /// A Boolean value indicating whether the view controller enforces a modal behavior.
     ///

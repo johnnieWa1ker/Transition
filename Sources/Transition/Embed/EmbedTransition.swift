@@ -41,10 +41,18 @@ extension EmbedTransition: Transition {
         viewController.viewDidAppear(false)
 
         NSLayoutConstraint.activate([
-            viewController.view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.leadingAnchor),
-            viewController.view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.trailingAnchor),
-            viewController.view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.topAnchor),
-            viewController.view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.bottomAnchor)
+            viewController.view.safeAreaLayoutGuide.leadingAnchor.constraint(
+                equalTo: containerView.safeAreaLayoutGuide.leadingAnchor
+            ),
+            viewController.view.safeAreaLayoutGuide.trailingAnchor.constraint(
+                equalTo: containerView.safeAreaLayoutGuide.trailingAnchor
+            ),
+            viewController.view.safeAreaLayoutGuide.topAnchor.constraint(
+                equalTo: containerView.safeAreaLayoutGuide.topAnchor
+            ),
+            viewController.view.safeAreaLayoutGuide.bottomAnchor.constraint(
+                equalTo: containerView.safeAreaLayoutGuide.bottomAnchor
+            )
         ])
     }
 
