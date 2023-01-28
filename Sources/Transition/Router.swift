@@ -1,6 +1,6 @@
 //
 //  Router.swift
-//  
+//
 //
 //  Created by Johnnie Walker on 14.12.2022.
 //
@@ -12,7 +12,7 @@ open class Router<VC: UIViewController>: RouterProtocol {
 
     public var transition: Transition?
     public weak var viewController: Controller?
-    
+
     public init(
         transition: Transition? = nil,
         viewController: Controller? = nil

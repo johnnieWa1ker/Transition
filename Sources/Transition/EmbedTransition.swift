@@ -1,6 +1,6 @@
 //
 //  EmbedTransition.swift
-//  
+//
 //
 //  Created by Johnnie Walker on 14.12.2022.
 //
@@ -26,7 +26,7 @@ extension EmbedTransition: Transition {
         guard
             let view = viewController.view,
             let parentController = self.viewController,
-            let containerView = self.containerView ?? parentController.view
+            let containerView = containerView ?? parentController.view
         else {
             return
         }
@@ -54,4 +54,3 @@ extension EmbedTransition: Transition {
         completion()
     }
 }
-
