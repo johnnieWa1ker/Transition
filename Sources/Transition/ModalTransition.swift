@@ -10,17 +10,18 @@ import UIKit
 public class ModalTransition {
     var isAnimated: Bool = true
     var modalPresentationStyle: UIModalPresentationStyle?
-    var detents: [UISheetPresentationController.Detent] = [.large()]
+    var detents: [UISheetPresentationController.Detent]
     
     public weak var viewController: UIViewController?
 
     public init(
         isAnimated: Bool = true,
         modalPresentationStyle: UIModalPresentationStyle? = nil,
-        detents: [UISheetPresentationController.Detent]
+        detents: [UISheetPresentationController.Detent] = [.large()]
     ) {
         self.isAnimated = isAnimated
         self.modalPresentationStyle = modalPresentationStyle
+        self.detents = detents
     }
 }
 
