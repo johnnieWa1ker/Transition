@@ -8,20 +8,29 @@
 import UIKit
 
 public class ModalTransition {
+    /// Pass `true` to animate the transition.
     var isAnimated: Bool = true
+
+    /// The presentation style for modal view controllers.
     var modalPresentationStyle: UIModalPresentationStyle?
-    var detents: [UISheetPresentationController.Detent]
-    
+
+    /// If `modalPresentationStyle` is `UIModalPresentationStyle.pageSheet` or `UIModalPresentationStyle.formSheet`, these properties will be applied to the rendered controller.
+    var bottomSheetProps: BottomSheetProps?
+
     public weak var viewController: UIViewController?
 
+    /// - Parameters:
+    ///   - isAnimated: Pass `true` to animate the transition.
+    ///   - modalPresentationStyle: The presentation style for modal view controllers.
+    ///   - bottomSheetProps: If `modalPresentationStyle` is `UIModalPresentationStyle.pageSheet` or `UIModalPresentationStyle.formSheet`, these properties will be applied to the rendered controller.
     public init(
         isAnimated: Bool = true,
         modalPresentationStyle: UIModalPresentationStyle? = nil,
-        detents: [UISheetPresentationController.Detent] = [.large()]
+        bottomSheetProps: BottomSheetProps? = nil
     ) {
         self.isAnimated = isAnimated
         self.modalPresentationStyle = modalPresentationStyle
-        self.detents = detents
+        self.bottomSheetProps = bottomSheetProps
     }
 }
 
@@ -33,10 +42,6 @@ extension ModalTransition: Transition {
             viewController.modalPresentationStyle = presentationStyle
         }
 
-        if let sheet = viewController.sheetPresentationController {
-            sheet.detents = detents
-        }
-
         let presentedViewController = self.viewController?.presentedViewController
 
         guard
@@ -44,6 +49,16 @@ extension ModalTransition: Transition {
         else {
             assertionFailure("Can't present \(viewController) while presented \(String(describing: presentedViewController))")
             return
+        }
+
+        if let sheet = viewController.sheetPresentationController, let props = bottomSheetProps {
+            viewController.isModalInPresentation = props.isModalInPresentation
+            sheet.detents = props.detents
+            sheet.selectedDetentIdentifier = props.selectedDetentIdentifier
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = props.prefersScrollingExpandsWhenScrolledToEdge
+            sheet.largestUndimmedDetentIdentifier = props.largestUndimmedDetentIdentifier
+            sheet.preferredCornerRadius = props.preferredCornerRadius
+            sheet.prefersGrabberVisible = props.prefersGrabberVisible
         }
 
         self.viewController?.present(
