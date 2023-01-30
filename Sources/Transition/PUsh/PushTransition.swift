@@ -1,6 +1,6 @@
 //
 //  PushTransition.swift
-//  
+//
 //
 //  Created by Johnnie Walker on 14.12.2022.
 //
@@ -25,8 +25,12 @@ extension PushTransition: Transition {
     }
 
     public func close(_ viewController: UIViewController) {
-        guard let navigationController = viewController.navigationController else { return }
+        guard
+            let navigationController = viewController.navigationController
+        else {
+            return
+        }
+        
         navigationController.popViewController(animated: isAnimated)
     }
 }
-
