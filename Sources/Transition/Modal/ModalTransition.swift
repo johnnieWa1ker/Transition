@@ -12,6 +12,8 @@ public class ModalTransition {
     /// Pass `true` to animate the transition.
     var isAnimated: Bool = true
 
+    var isEmbedInNavigationController: Bool
+
     /// The presentation style for modal view controllers.
     var modalPresentationStyle: UIModalPresentationStyle?
 
@@ -26,10 +28,12 @@ public class ModalTransition {
     ///   - bottomSheetProps: If `modalPresentationStyle` is `UIModalPresentationStyle.pageSheet` or `UIModalPresentationStyle.formSheet`, these properties will be applied to the rendered controller.
     public init(
         isAnimated: Bool = true,
+        isEmbedInNavigationController: Bool = false,
         modalPresentationStyle: UIModalPresentationStyle? = nil,
         bottomSheetProps: BottomSheetProps? = nil
     ) {
         self.isAnimated = isAnimated
+        self.isEmbedInNavigationController = isEmbedInNavigationController
         self.modalPresentationStyle = modalPresentationStyle
         self.bottomSheetProps = bottomSheetProps
     }
@@ -63,7 +67,9 @@ extension ModalTransition: Transition {
         }
 
         self.viewController?.present(
-            viewController,
+            isEmbedInNavigationController
+                ? UINavigationController(rootViewController: viewController)
+                : viewController,
             animated: isAnimated,
             completion: nil
         )
