@@ -10,9 +10,12 @@ import UIKit
 /// Allows you to open a new ViewController as a modal window.
 public class ModalTransition {
     /// Pass `true` to animate the transition.
-    var isAnimated: Bool = true
-
-    var isEmbedInNavigationController: Bool
+    var isAnimated: Bool
+    
+    /// Wraps `UIViewController` to be opened in `UINavigationController`
+    ///
+    /// Default `false`
+    var isNeedToEmbedInNavigationController: Bool
 
     /// The presentation style for modal view controllers.
     var modalPresentationStyle: UIModalPresentationStyle?
@@ -24,16 +27,17 @@ public class ModalTransition {
 
     /// - Parameters:
     ///   - isAnimated: Pass `true` to animate the transition.
+    ///   - isNeedToEmbedInNavigationController: wraps `UIViewController` to be opened in `UINavigationController`
     ///   - modalPresentationStyle: The presentation style for modal view controllers.
     ///   - bottomSheetProps: If `modalPresentationStyle` is `UIModalPresentationStyle.pageSheet` or `UIModalPresentationStyle.formSheet`, these properties will be applied to the rendered controller.
     public init(
         isAnimated: Bool = true,
-        isEmbedInNavigationController: Bool = false,
+        isNeedToEmbedInNavigationController: Bool = false,
         modalPresentationStyle: UIModalPresentationStyle? = nil,
         bottomSheetProps: BottomSheetProps? = nil
     ) {
         self.isAnimated = isAnimated
-        self.isEmbedInNavigationController = isEmbedInNavigationController
+        self.isNeedToEmbedInNavigationController = isNeedToEmbedInNavigationController
         self.modalPresentationStyle = modalPresentationStyle
         self.bottomSheetProps = bottomSheetProps
     }
@@ -56,18 +60,10 @@ extension ModalTransition: Transition {
             return
         }
 
-        if let sheet = viewController.sheetPresentationController, let props = bottomSheetProps {
-            viewController.isModalInPresentation = props.isModalInPresentation
-            sheet.detents = props.detents
-            sheet.selectedDetentIdentifier = props.selectedDetentIdentifier
-            sheet.prefersScrollingExpandsWhenScrolledToEdge = props.prefersScrollingExpandsWhenScrolledToEdge
-            sheet.largestUndimmedDetentIdentifier = props.largestUndimmedDetentIdentifier
-            sheet.preferredCornerRadius = props.preferredCornerRadius
-            sheet.prefersGrabberVisible = props.prefersGrabberVisible
-        }
+        setupBottomSheetIfNeeded(viewController)
 
         self.viewController?.present(
-            isEmbedInNavigationController
+            isNeedToEmbedInNavigationController
                 ? UINavigationController(rootViewController: viewController)
                 : viewController,
             animated: isAnimated,
@@ -90,5 +86,21 @@ extension ModalTransition: Transition {
             animated: isAnimated,
             completion: completion
         )
+    }
+}
+
+// MARK: - Private
+
+private extension ModalTransition {
+    func setupBottomSheetIfNeeded(_ viewController: UIViewController) {
+        if let sheet = viewController.sheetPresentationController, let props = bottomSheetProps {
+            viewController.isModalInPresentation = props.isModalInPresentation
+            sheet.detents = props.detents
+            sheet.selectedDetentIdentifier = props.selectedDetentIdentifier
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = props.prefersScrollingExpandsWhenScrolledToEdge
+            sheet.largestUndimmedDetentIdentifier = props.largestUndimmedDetentIdentifier
+            sheet.preferredCornerRadius = props.preferredCornerRadius
+            sheet.prefersGrabberVisible = props.prefersGrabberVisible
+        }
     }
 }
