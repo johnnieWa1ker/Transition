@@ -48,6 +48,11 @@ public struct BottomSheetProps {
     /// Set this value to `true` for the system to draw a grabber in the standard system-defined location. The system automatically hides the grabber at appropriate times, like when the sheet is full screen in a compact-height size class or when another sheet presents on top of it.
     public let prefersGrabberVisible: Bool
     
+    /// A Boolean value that indicates whether the title displays in a large format.
+    ///
+    /// Default `false`
+    public let prefersLargeTitles: Bool
+    
     /// - Parameters:
     ///   - isModalInPresentation: A Boolean value indicating whether the view controller enforces a modal behavior.
     ///   - detents: The array of heights where a sheet can rest.
@@ -56,6 +61,7 @@ public struct BottomSheetProps {
     ///   - largestUndimmedDetentIdentifier: The largest detent that doesn’t dim the view underneath the sheet.
     ///   - preferredCornerRadius: The corner radius that the sheet attempts to present with.
     ///   - prefersGrabberVisible: A Boolean value that determines whether the sheet shows a grabber at the top.
+    ///   - prefersLargeTitles: A Boolean value that indicates whether the title displays in a large format.
     public init(
         isModalInPresentation: Bool = false,
         detents: [UISheetPresentationController.Detent] = [.large()],
@@ -63,7 +69,8 @@ public struct BottomSheetProps {
         prefersScrollingExpandsWhenScrolledToEdge: Bool = true,
         largestUndimmedDetentIdentifier: UISheetPresentationController.Detent.Identifier? = nil,
         preferredCornerRadius: CGFloat? = nil,
-        prefersGrabberVisible: Bool = false
+        prefersGrabberVisible: Bool = false,
+        prefersLargeTitles: Bool = false
     ) {
         self.isModalInPresentation = isModalInPresentation
         self.detents = detents
@@ -72,5 +79,6 @@ public struct BottomSheetProps {
         self.largestUndimmedDetentIdentifier = largestUndimmedDetentIdentifier
         self.preferredCornerRadius = preferredCornerRadius
         self.prefersGrabberVisible = prefersGrabberVisible
+        self.prefersLargeTitles = prefersLargeTitles
     }
 }

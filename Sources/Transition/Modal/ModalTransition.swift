@@ -61,14 +61,24 @@ extension ModalTransition: Transition {
         }
 
         setupBottomSheetIfNeeded(viewController)
-
-        self.viewController?.present(
-            isNeedToEmbedInNavigationController
-                ? UINavigationController(rootViewController: viewController)
-                : viewController,
-            animated: isAnimated,
-            completion: nil
-        )
+        
+        if isNeedToEmbedInNavigationController {
+            let navigationController = UINavigationController(rootViewController: viewController)
+            navigationController.navigationBar.prefersLargeTitles = bottomSheetProps?.prefersLargeTitles ?? false
+            self.viewController?.present(
+                isNeedToEmbedInNavigationController
+                navigationController,
+                animated: isAnimated,
+                completion: nil
+            )
+            
+        } else {
+            self.viewController?.present(
+                viewController,
+                animated: isAnimated,
+                completion: nil
+            )
+        }
     }
 
     public func close(_ viewController: UIViewController) {
