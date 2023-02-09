@@ -66,7 +66,6 @@ extension ModalTransition: Transition {
             let navigationController = UINavigationController(rootViewController: viewController)
             navigationController.navigationBar.prefersLargeTitles = bottomSheetProps?.prefersLargeTitles ?? false
             self.viewController?.present(
-                isNeedToEmbedInNavigationController
                 navigationController,
                 animated: isAnimated,
                 completion: nil
