@@ -13,7 +13,7 @@ public struct BottomSheetProps {
     /// A Boolean value indicating whether the view controller enforces a modal behavior.
     ///
     /// The default value of this property is `false`. When you set it to `true`, UIKit ignores events outside the view controller's bounds and prevents the interactive dismissal of the view controller while it is onscreen.
-    public let isModalInPresentation: Bool
+    public let doNotCloseOnDrag: Bool
     
     /// The array of heights where a sheet can rest.
     ///
@@ -54,7 +54,7 @@ public struct BottomSheetProps {
     public let prefersLargeTitles: Bool
     
     /// - Parameters:
-    ///   - isModalInPresentation: A Boolean value indicating whether the view controller enforces a modal behavior.
+    ///   - doNotCloseOnDrag: A Boolean value indicating whether the view controller enforces a modal behavior.
     ///   - detents: The array of heights where a sheet can rest.
     ///   - selectedDetentIdentifier: The identifier of the most recently selected detent.
     ///   - prefersScrollingExpandsWhenScrolledToEdge: A Boolean value that determines whether scrolling expands the sheet to a larger detent.
@@ -63,7 +63,7 @@ public struct BottomSheetProps {
     ///   - prefersGrabberVisible: A Boolean value that determines whether the sheet shows a grabber at the top.
     ///   - prefersLargeTitles: A Boolean value that indicates whether the title displays in a large format.
     public init(
-        isModalInPresentation: Bool = false,
+        doNotCloseOnDrag: Bool = false,
         detents: [UISheetPresentationController.Detent] = [.large()],
         selectedDetentIdentifier: UISheetPresentationController.Detent.Identifier? = nil,
         prefersScrollingExpandsWhenScrolledToEdge: Bool = true,
@@ -72,7 +72,7 @@ public struct BottomSheetProps {
         prefersGrabberVisible: Bool = false,
         prefersLargeTitles: Bool = false
     ) {
-        self.isModalInPresentation = isModalInPresentation
+        self.doNotCloseOnDrag = doNotCloseOnDrag
         self.detents = detents
         self.selectedDetentIdentifier = selectedDetentIdentifier
         self.prefersScrollingExpandsWhenScrolledToEdge = prefersScrollingExpandsWhenScrolledToEdge

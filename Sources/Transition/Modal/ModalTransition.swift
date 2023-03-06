@@ -103,7 +103,7 @@ extension ModalTransition: Transition {
 private extension ModalTransition {
     func setupBottomSheetIfNeeded(_ viewController: UIViewController) {
         if let sheet = viewController.sheetPresentationController, let props = bottomSheetProps {
-            viewController.isModalInPresentation = props.isModalInPresentation
+            viewController.isModalInPresentation = props.doNotCloseOnDrag
             sheet.detents = props.detents
             sheet.selectedDetentIdentifier = props.selectedDetentIdentifier
             sheet.prefersScrollingExpandsWhenScrolledToEdge = props.prefersScrollingExpandsWhenScrolledToEdge
