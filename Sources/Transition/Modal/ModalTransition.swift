@@ -49,6 +49,7 @@ extension ModalTransition: Transition {
     public func open(_ viewController: UIViewController) {
         if let presentationStyle = modalPresentationStyle {
             viewController.modalPresentationStyle = presentationStyle
+            viewController.presentationController?.delegate = viewController as? any UIAdaptivePresentationControllerDelegate
         }
 
         let presentedViewController = self.viewController?.presentedViewController
