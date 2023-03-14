@@ -49,7 +49,6 @@ extension ModalTransition: Transition {
     public func open(_ viewController: UIViewController) {
         if let presentationStyle = modalPresentationStyle {
             viewController.modalPresentationStyle = presentationStyle
-            viewController.presentationController?.delegate = viewController as? any UIAdaptivePresentationControllerDelegate
         }
 
         let presentedViewController = self.viewController?.presentedViewController
@@ -65,6 +64,7 @@ extension ModalTransition: Transition {
         
         if isNeedToEmbedInNavigationController {
             let navigationController = UINavigationController(rootViewController: viewController)
+            navigationController.presentationController?.delegate = viewController as? any UIAdaptivePresentationControllerDelegate
             navigationController.navigationBar.prefersLargeTitles = bottomSheetProps?.prefersLargeTitles ?? false
             self.viewController?.present(
                 navigationController,
