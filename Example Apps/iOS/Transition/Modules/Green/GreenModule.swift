@@ -1,6 +1,6 @@
 //
-//  HomeModule.swift
-//  ExampleTransition
+//  GreenModule.swift
+//  Transition
 //
 //  Created by Johnnie Walker on 28.03.2023.
 //
@@ -9,18 +9,17 @@ import Foundation
 import Transition
 import UIKit
 
-final class HomeModule {
+final class GreenModule {
     public let view: UIViewController
 
     public init(
         transition: Transition
     ) {
-        let router = HomeRouter()
+        let router = GreenRouter()
         router.transition = transition
 
-        let view = HomeViewController(router: router)
-        let navigationController = UINavigationController(rootViewController: view)
-        self.view = navigationController
+        let view = GreenViewController(router: router)
+        self.view = view
 
         router.viewController = view
     }

@@ -13,7 +13,6 @@
 		9356FC7029D2A65A006C7002 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9356FC6F29D2A65A006C7002 /* Assets.xcassets */; };
 		9356FC7329D2A65A006C7002 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9356FC7129D2A65A006C7002 /* LaunchScreen.storyboard */; };
 		9356FC7B29D2A9BD006C7002 /* YellowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356FC7A29D2A9BD006C7002 /* YellowViewController.swift */; };
-		9356FC7E29D2AA34006C7002 /* Transition in Frameworks */ = {isa = PBXBuildFile; productRef = 9356FC7D29D2AA34006C7002 /* Transition */; };
 		9356FC8129D2AA86006C7002 /* HomeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356FC8029D2AA86006C7002 /* HomeModule.swift */; };
 		9356FC8329D2AAA8006C7002 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356FC8229D2AAA8006C7002 /* HomeRouter.swift */; };
 		9356FC8629D2AC3D006C7002 /* YellowModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356FC8529D2AC3D006C7002 /* YellowModule.swift */; };
@@ -23,10 +22,11 @@
 		9356FC9229D2B4D6006C7002 /* GreenRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356FC9129D2B4D6006C7002 /* GreenRoute.swift */; };
 		9356FC9429D2B4E2006C7002 /* GreenModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356FC9329D2B4E2006C7002 /* GreenModule.swift */; };
 		9356FC9629D2B4EC006C7002 /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356FC9529D2B4EC006C7002 /* GreenViewController.swift */; };
+		93FED8FB29D2C8EA00586B1F /* Transition in Frameworks */ = {isa = PBXBuildFile; productRef = 93FED8FA29D2C8EA00586B1F /* Transition */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9356FC6329D2A659006C7002 /* ExampleTransition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleTransition.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9356FC6329D2A659006C7002 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9356FC6629D2A659006C7002 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9356FC6829D2A659006C7002 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9356FC6A29D2A659006C7002 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9356FC7E29D2AA34006C7002 /* Transition in Frameworks */,
+				93FED8FB29D2C8EA00586B1F /* Transition in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,20 +60,21 @@
 		9356FC5A29D2A659006C7002 = {
 			isa = PBXGroup;
 			children = (
-				9356FC6529D2A659006C7002 /* ExampleTransition */,
+				9356FC6529D2A659006C7002 /* Transition */,
 				9356FC6429D2A659006C7002 /* Products */,
+				93FED8F929D2C8EA00586B1F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		9356FC6429D2A659006C7002 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9356FC6329D2A659006C7002 /* ExampleTransition.app */,
+				9356FC6329D2A659006C7002 /* Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9356FC6529D2A659006C7002 /* ExampleTransition */ = {
+		9356FC6529D2A659006C7002 /* Transition */ = {
 			isa = PBXGroup;
 			children = (
 				9356FC7429D2A65A006C7002 /* Info.plist */,
@@ -83,7 +84,7 @@
 				9356FC8D29D2B4AB006C7002 /* Modules */,
 				9356FC7129D2A65A006C7002 /* LaunchScreen.storyboard */,
 			);
-			path = ExampleTransition;
+			path = Transition;
 			sourceTree = "<group>";
 		};
 		9356FC7F29D2AA7B006C7002 /* Home */ = {
@@ -144,12 +145,19 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		93FED8F929D2C8EA00586B1F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9356FC6229D2A659006C7002 /* ExampleTransition */ = {
+		9356FC6229D2A659006C7002 /* Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9356FC7729D2A65A006C7002 /* Build configuration list for PBXNativeTarget "ExampleTransition" */;
+			buildConfigurationList = 9356FC7729D2A65A006C7002 /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
 				9356FC5F29D2A659006C7002 /* Sources */,
 				9356FC6029D2A659006C7002 /* Frameworks */,
@@ -159,12 +167,12 @@
 			);
 			dependencies = (
 			);
-			name = ExampleTransition;
+			name = Example;
 			packageProductDependencies = (
-				9356FC7D29D2AA34006C7002 /* Transition */,
+				93FED8FA29D2C8EA00586B1F /* Transition */,
 			);
 			productName = ExampleTransition;
-			productReference = 9356FC6329D2A659006C7002 /* ExampleTransition.app */;
+			productReference = 9356FC6329D2A659006C7002 /* Example.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -182,7 +190,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9356FC5E29D2A659006C7002 /* Build configuration list for PBXProject "ExampleTransition" */;
+			buildConfigurationList = 9356FC5E29D2A659006C7002 /* Build configuration list for PBXProject "Transition" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -198,7 +206,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9356FC6229D2A659006C7002 /* ExampleTransition */,
+				9356FC6229D2A659006C7002 /* Example */,
 			);
 		};
 /* End PBXProject section */
@@ -373,7 +381,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 96Q9U9SZGB;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ExampleTransition/Info.plist;
+				INFOPLIST_FILE = Transition/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Transition;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -383,7 +392,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.johnnie.ExampleTransition;
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnnie.transition;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -400,7 +409,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 96Q9U9SZGB;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ExampleTransition/Info.plist;
+				INFOPLIST_FILE = Transition/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Transition;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -410,7 +420,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.johnnie.ExampleTransition;
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnnie.transition;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -421,7 +431,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9356FC5E29D2A659006C7002 /* Build configuration list for PBXProject "ExampleTransition" */ = {
+		9356FC5E29D2A659006C7002 /* Build configuration list for PBXProject "Transition" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9356FC7529D2A65A006C7002 /* Debug */,
@@ -430,7 +440,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9356FC7729D2A65A006C7002 /* Build configuration list for PBXNativeTarget "ExampleTransition" */ = {
+		9356FC7729D2A65A006C7002 /* Build configuration list for PBXNativeTarget "Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9356FC7829D2A65A006C7002 /* Debug */,
@@ -453,7 +463,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		9356FC7D29D2AA34006C7002 /* Transition */ = {
+		93FED8FA29D2C8EA00586B1F /* Transition */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9356FC7C29D2AA34006C7002 /* XCRemoteSwiftPackageReference "Transition" */;
 			productName = Transition;
