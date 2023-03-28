@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "transition",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnnieWa1ker/Transition",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "a7860da2a05a7b51160f0e8a36534c70bad404ea"
+      }
+    }
+  ],
+  "version" : 2
+}
