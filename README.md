@@ -45,11 +45,12 @@ extension ProfileRoute where Self: RouterProtocol {
         let transition = ModalTransition()
         
         // Transition needs to be passed to the router, which is stored in your controller
-        // It is convenient to do this in a class that assembles a module, such as Assembly in VIPER
+        // It is convenient to do this in a class that assembles a module,
+        // such as Assembly in VIPER
         let module = ProfileModule(transition: transition)
         
-        // The Transition library method is called into which the opened UIViewController will be passed
-        // and opening method
+        // The Transition library method is called into which the opened UIViewController
+        // will be passed and opening method
         open(module.view, transition: transition)
     }
     
@@ -85,7 +86,8 @@ For a better understanding of how to work with `Transition`, please check out th
 
 ```swift
 // Each property replicates native settings in UIKit, you shouldn't have
-// not understanding how it works. Just in case, for the BottomSheetProps properties, their documentation is duplicated
+// not understanding how it works. Just in case, for the BottomSheetProps properties,
+// their documentation is duplicated
 let transition = ModalTransition(
     isAnimated: true,
     isNeedToEmbedInNavigationController: false,
