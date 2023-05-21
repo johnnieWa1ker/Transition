@@ -51,13 +51,8 @@ extension ModalTransition: Transition {
             viewController.modalPresentationStyle = presentationStyle
         }
 
-        let presentedViewController = self.viewController?.presentedViewController
-
-        guard
-            presentedViewController == nil
-        else {
-            assertionFailure("Can't present \(viewController) while presented \(String(describing: presentedViewController))")
-            return
+        while let presentedViewController = self.viewController?.presentedViewController {
+            presentedViewController.dismiss(animated: true)
         }
 
         setupBottomSheetIfNeeded(viewController)
