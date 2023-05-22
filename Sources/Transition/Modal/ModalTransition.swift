@@ -11,7 +11,7 @@ import UIKit
 public class ModalTransition {
     /// Pass `true` to animate the transition.
     var isAnimated: Bool
-    
+
     /// Wraps `UIViewController` to be opened in `UINavigationController`
     ///
     /// Default `false`
@@ -51,17 +51,13 @@ extension ModalTransition: Transition {
             viewController.modalPresentationStyle = presentationStyle
         }
 
-        let presentedViewController = self.viewController?.presentedViewController
-
-        guard
-            presentedViewController == nil
-        else {
-            assertionFailure("Can't present \(viewController) while presented \(String(describing: presentedViewController))")
-            return
-        }
+        self.viewController?
+            .presentedViewController?.view.window?
+            .rootViewController?
+            .dismiss(animated: false, completion: nil)
 
         setupBottomSheetIfNeeded(viewController)
-        
+
         if isNeedToEmbedInNavigationController {
             let navigationController = UINavigationController(rootViewController: viewController)
             navigationController.navigationBar.prefersLargeTitles = bottomSheetProps?.prefersLargeTitles ?? false
@@ -70,7 +66,7 @@ extension ModalTransition: Transition {
                 animated: isAnimated,
                 completion: nil
             )
-            
+
         } else {
             self.viewController?.present(
                 viewController,
