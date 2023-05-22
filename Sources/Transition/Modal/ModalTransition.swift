@@ -50,10 +50,8 @@ extension ModalTransition: Transition {
         if let presentationStyle = modalPresentationStyle {
             viewController.modalPresentationStyle = presentationStyle
         }
-
-        while let presentedViewController = self.viewController?.presentedViewController {
-            presentedViewController.dismiss(animated: true)
-        }
+        
+        dismissAllPresentedViewControllers(from: viewController)
 
         setupBottomSheetIfNeeded(viewController)
         
@@ -90,6 +88,15 @@ extension ModalTransition: Transition {
             animated: isAnimated,
             completion: completion
         )
+    }
+    
+    func dismissAllPresentedViewControllers(from viewController: UIViewController) {
+        if let presentedViewController = viewController.presentedViewController {
+            // Dismiss the presented view controller
+            presentedViewController.dismiss(animated: true, completion: nil)
+            // Recursively call dismissAllPresentedViewControllers on the presented view controller
+            dismissAllPresentedViewControllers(from: presentedViewController)
+        }
     }
 }
 
