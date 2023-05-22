@@ -51,16 +51,10 @@ extension ModalTransition: Transition {
             viewController.modalPresentationStyle = presentationStyle
         }
 
-//        let presentedViewController = self.viewController?.presentedViewController
-//
-//        guard
-//            presentedViewController == nil
-//        else {
-//            assertionFailure("Can't present \(viewController) while presented \(String(describing: presentedViewController))")
-//            return
-//        }
-        
-        dismissAllPresentedViewControllers(from: self.viewController?.presentedViewController)
+        self.viewController?
+            .presentedViewController?.view.window?
+            .rootViewController?
+            .dismiss(animated: false, completion: nil)
 
         setupBottomSheetIfNeeded(viewController)
 
@@ -97,15 +91,6 @@ extension ModalTransition: Transition {
             animated: isAnimated,
             completion: completion
         )
-    }
-
-    func dismissAllPresentedViewControllers(from viewController: UIViewController?) {
-        if let presentedViewController = viewController?.presentedViewController {
-            // Dismiss the presented view controller
-            presentedViewController.dismiss(animated: true, completion: nil)
-            // Recursively call dismissAllPresentedViewControllers on the presented view controller
-            dismissAllPresentedViewControllers(from: presentedViewController)
-        }
     }
 }
 
