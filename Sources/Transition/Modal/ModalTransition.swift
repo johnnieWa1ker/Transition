@@ -11,7 +11,7 @@ import UIKit
 public class ModalTransition {
     /// Pass `true` to animate the transition.
     var isAnimated: Bool
-    
+
     /// Wraps `UIViewController` to be opened in `UINavigationController`
     ///
     /// Default `false`
@@ -50,11 +50,20 @@ extension ModalTransition: Transition {
         if let presentationStyle = modalPresentationStyle {
             viewController.modalPresentationStyle = presentationStyle
         }
+
+//        let presentedViewController = self.viewController?.presentedViewController
+//
+//        guard
+//            presentedViewController == nil
+//        else {
+//            assertionFailure("Can't present \(viewController) while presented \(String(describing: presentedViewController))")
+//            return
+//        }
         
-        dismissAllPresentedViewControllers(from: viewController)
+        dismissAllPresentedViewControllers(from: self.viewController?.presentedViewController)
 
         setupBottomSheetIfNeeded(viewController)
-        
+
         if isNeedToEmbedInNavigationController {
             let navigationController = UINavigationController(rootViewController: viewController)
             navigationController.navigationBar.prefersLargeTitles = bottomSheetProps?.prefersLargeTitles ?? false
@@ -63,7 +72,7 @@ extension ModalTransition: Transition {
                 animated: isAnimated,
                 completion: nil
             )
-            
+
         } else {
             self.viewController?.present(
                 viewController,
@@ -89,9 +98,9 @@ extension ModalTransition: Transition {
             completion: completion
         )
     }
-    
-    func dismissAllPresentedViewControllers(from viewController: UIViewController) {
-        if let presentedViewController = viewController.presentedViewController {
+
+    func dismissAllPresentedViewControllers(from viewController: UIViewController?) {
+        if let presentedViewController = viewController?.presentedViewController {
             // Dismiss the presented view controller
             presentedViewController.dismiss(animated: true, completion: nil)
             // Recursively call dismissAllPresentedViewControllers on the presented view controller
